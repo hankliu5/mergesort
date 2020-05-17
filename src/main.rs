@@ -1,4 +1,5 @@
 use rand;
+use std::io;
 
 fn merge(left: &[i32], right: &[i32], v: &mut [i32]) {
     let mut left_i = 0;
@@ -37,8 +38,13 @@ fn mergesort(v: &mut [i32]) {
 }
 
 fn main() {
-    println!("Hello, world!");
-    let input_size = 16;
+    println!("Hello, please type a positive integer number: ");
+
+    let mut input_size = String::new(); 
+    io::stdin().read_line(&mut input_size).expect("Failed to read line");
+
+    let input_size: usize = input_size.trim().parse().expect("please type a number");
+
     // create a random input integer array (could be generic in the end)
     let mut input_vector: Vec<i32> = Vec::with_capacity(input_size);
 
@@ -58,5 +64,6 @@ fn main() {
     for num in &input_vector {
         print!("{} ", num);
     }
+    
     println!();
 }
