@@ -52,18 +52,13 @@ fn main() {
         input_vector.push(rand::random());
     };
 
-    for num in &input_vector {
-        print!("{} ", num);
-    }
-    println!();
+    let mut valid_vector = input_vector.clone();
+    valid_vector.sort();
 
     // recursive sorting
     mergesort(&mut input_vector[..]);
 
     // validate the answer
-    for num in &input_vector {
-        print!("{} ", num);
-    }
-    
-    println!();
+    assert_eq!(input_vector, valid_vector);
+    println!("pass");
 }
