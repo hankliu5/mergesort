@@ -1,4 +1,4 @@
-fn merge(left: &[i32], right: &[i32], v: &mut [i32]) {
+fn merge<T: Ord + Copy>(left: &[T], right: &[T], v: &mut [T]) {
     let mut left_i = 0;
     let mut right_i = 0;
     let mut index = 0;
@@ -21,7 +21,7 @@ fn merge(left: &[i32], right: &[i32], v: &mut [i32]) {
     }
 }
 
-pub fn mergesort(v: &mut [i32]) {
+pub fn mergesort<T: Ord + Copy + Clone>(v: &mut [T]) {
     let mid = v.len() / 2;
     if mid == 0 {
         return;
